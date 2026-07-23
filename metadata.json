@@ -1,0 +1,6 @@
+{
+  "name": "Wandaa Predictions",
+  "description": "Free sports match predictions, football tips, form analysis and team insights powered by statistical AI, monetized via display ad placements.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
