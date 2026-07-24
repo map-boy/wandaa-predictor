@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Match, OddsFormat } from '../types';
 import { Heart, ChevronRight, TrendingUp, Sparkles, Clock, MapPin } from 'lucide-react';
 
@@ -58,7 +58,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
             <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
             {match.league}
           </span>
-          <span className="text-slate-500">•</span>
+          <span className="text-slate-500">â€¢</span>
           <span className="text-slate-400 font-medium flex items-center gap-1">
             <Clock className="w-3 h-3 text-slate-500" />
             {match.kickoffDateLabel}, {match.kickoffTime}
@@ -101,12 +101,16 @@ export const MatchCard: React.FC<MatchCardProps> = ({
           {/* Home Team */}
           <div className="col-span-5 flex flex-col items-center text-center space-y-1.5">
             <div className="w-12 h-12 rounded-xl bg-slate-950 p-1 border border-slate-800 flex items-center justify-center overflow-hidden shadow-inner group-hover:border-emerald-500/40 transition">
-              <img
-                src={match.homeTeam.logo}
-                alt={match.homeTeam.name}
-                className="w-full h-full object-contain rounded"
-                loading="lazy"
-              />
+              {match.homeTeam.logo ? (
+                <img
+                  src={match.homeTeam.logo}
+                  alt={match.homeTeam.name}
+                  className="w-full h-full object-contain rounded"
+                  loading="lazy"
+                />
+              ) : (
+                <span className="text-sm font-black text-slate-500">{match.homeTeam.shortName?.slice(0, 3) || match.homeTeam.name.slice(0, 3)}</span>
+              )}
             </div>
             <span className="text-xs font-bold text-white line-clamp-1">
               {match.homeTeam.name}
@@ -148,12 +152,16 @@ export const MatchCard: React.FC<MatchCardProps> = ({
           {/* Away Team */}
           <div className="col-span-5 flex flex-col items-center text-center space-y-1.5">
             <div className="w-12 h-12 rounded-xl bg-slate-950 p-1 border border-slate-800 flex items-center justify-center overflow-hidden shadow-inner group-hover:border-emerald-500/40 transition">
-              <img
-                src={match.awayTeam.logo}
-                alt={match.awayTeam.name}
-                className="w-full h-full object-contain rounded"
-                loading="lazy"
-              />
+              {match.awayTeam.logo ? (
+                <img
+                  src={match.awayTeam.logo}
+                  alt={match.awayTeam.name}
+                  className="w-full h-full object-contain rounded"
+                  loading="lazy"
+                />
+              ) : (
+                <span className="text-sm font-black text-slate-500">{match.awayTeam.shortName?.slice(0, 3) || match.awayTeam.name.slice(0, 3)}</span>
+              )}
             </div>
             <span className="text-xs font-bold text-white line-clamp-1">
               {match.awayTeam.name}
@@ -200,3 +208,4 @@ export const MatchCard: React.FC<MatchCardProps> = ({
     </div>
   );
 };
+

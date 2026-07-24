@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Match, OddsFormat } from '../types';
 import {
   ArrowLeft,
@@ -36,7 +36,7 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({
   const [loadingAi, setLoadingAi] = useState(false);
 
   const handleShare = () => {
-    const text = `⚽ Wandaa Prediction for ${match.homeTeam.name} vs ${match.awayTeam.name}:\n🔥 Tip: ${match.prediction.primaryTip} (${match.prediction.confidenceScore}% Confidence)\n📊 Check details on Wandaa Predictions!`;
+    const text = `âš½ Wandaa Prediction for ${match.homeTeam.name} vs ${match.awayTeam.name}:\nðŸ”¥ Tip: ${match.prediction.primaryTip} (${match.prediction.confidenceScore}% Confidence)\nðŸ“Š Check details on Wandaa Predictions!`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -316,27 +316,7 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({
           </div>
         </div>
 
-        {/* Deep AI Report Generator Button */}
-        <div className="pt-2">
-          {aiCustomReport ? (
-            <div className="p-4 bg-emerald-950/40 border border-emerald-500/40 rounded-2xl space-y-1 text-xs text-emerald-200 animate-fadeIn">
-              <div className="flex items-center space-x-2 font-bold text-emerald-400">
-                <Bot className="w-4 h-4" />
-                <span>AI Tactical Breakdown</span>
-              </div>
-              <p className="leading-relaxed">{aiCustomReport}</p>
-            </div>
-          ) : (
-            <button
-              onClick={generateDeepAiAnalysis}
-              disabled={loadingAi}
-              className="w-full py-2.5 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 border border-slate-700 text-xs font-bold text-slate-200 rounded-xl transition flex items-center justify-center space-x-2"
-            >
-              <Bot className="w-4 h-4 text-emerald-400" />
-              <span>{loadingAi ? 'Synthesizing Tactical Data...' : 'Generate Deep AI Tactical Report'}</span>
-            </button>
-          )}
-        </div>
+
       </div>
 
       {/* Ad Placement: Native Banner */}
@@ -426,3 +406,4 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({
     </div>
   );
 };
+

@@ -194,16 +194,28 @@ export default function App() {
                     >
                       <div className="flex items-center space-x-3">
                         <div className="flex items-center -space-x-2">
-                          <img
-                            src={bankerMatch.homeTeam.logo}
-                            alt={bankerMatch.homeTeam.name}
-                            className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-950 p-0.5 object-contain"
-                          />
-                          <img
-                            src={bankerMatch.awayTeam.logo}
-                            alt={bankerMatch.awayTeam.name}
-                            className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-950 p-0.5 object-contain"
-                          />
+                          {bankerMatch.homeTeam.logo ? (
+                            <img
+                              src={bankerMatch.homeTeam.logo}
+                              alt={bankerMatch.homeTeam.name}
+                              className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-950 p-0.5 object-contain"
+                            />
+                          ) : (
+                            <div className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-950 p-0.5 flex items-center justify-center text-[10px] font-black text-slate-400">
+                              {bankerMatch.homeTeam.shortName?.slice(0, 3) || bankerMatch.homeTeam.name.slice(0, 3)}
+                            </div>
+                          )}
+                          {bankerMatch.awayTeam.logo ? (
+                            <img
+                              src={bankerMatch.awayTeam.logo}
+                              alt={bankerMatch.awayTeam.name}
+                              className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-950 p-0.5 object-contain"
+                            />
+                          ) : (
+                            <div className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-950 p-0.5 flex items-center justify-center text-[10px] font-black text-slate-400">
+                              {bankerMatch.awayTeam.shortName?.slice(0, 3) || bankerMatch.awayTeam.name.slice(0, 3)}
+                            </div>
+                          )}
                         </div>
                         <div>
                           <h3 className="text-sm font-black text-white">
@@ -373,6 +385,7 @@ export default function App() {
     </div>
   );
 }
+
 
 
 
